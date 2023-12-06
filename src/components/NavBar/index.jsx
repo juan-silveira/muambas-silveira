@@ -1,9 +1,11 @@
+import CartWidget from "../CartWidget";
+
 const NavBar = () => {
 
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
+                <div className="container">
                     <a className="navbar-brand" href="#">
                         <img src="./logo192.png" alt="logo" height={"30px"} />
                     </a>
@@ -26,6 +28,7 @@ const NavBar = () => {
                             </li>
                         </ul>
                         <a className="btn btn-primary" href="#">Login</a>
+                        <CartWidget />
                     </div>
                 </div>
             </nav>
