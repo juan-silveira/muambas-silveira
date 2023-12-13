@@ -2,12 +2,15 @@ import React, { useState } from "react";
 
 const ItemCount = (props) => {
 
-    const name = props.name;
-    const description = props.description;
-    const price = parseFloat(props.price).toFixed(2);
-    const imgUrl = props.imgUrl;
-    const stock = parseInt(props.stock);
-    const initial = parseInt(props.initial);
+    const produtos = props.produtos;
+    const item = produtos[0];
+
+    const name = item.name;
+    const description = item.description;
+    const price = parseFloat(item.price).toFixed(2);
+    const imgUrl = item.imgUrl;
+    const stock = parseInt(item.stock);
+    const initial = 1;
     const [count, setCount] = useState(initial);
 
     function removeItem() {

@@ -21,7 +21,7 @@ const ItemList = () => {
                     return <li className="list-group-item" key={`produto-${i}`}>{p.name}</li>
                 })}
             </ul>
-            <ItemCount name={Produtos[0].name}  description={Produtos[0].description}  price={Produtos[0].price} stock={Produtos[0].stock} initial="1" imgUrl={Produtos[0].imgUrl}/>
+            <ItemCount produtos={Produtos}/>
         </>
     )
 }
