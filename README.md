@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# To-do Vue App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Javascript](https://img.shields.io/badge/javascript-grey?style=for-the-badge&logo=javascript)
+![ReactJs](https://img.shields.io/badge/ReactJs-grey?style=for-the-badge&logo=react)
+![Bootstrap](https://img.shields.io/badge/bootstrap-CCC?style=for-the-badge&logo=bootstrap)
+<!-- ![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
+![Vuetify](https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=AEDDFF)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) -->
 
-## Available Scripts
+<div align="center">
+    <img src="./src/assets/print_todo_vue_app.png" alt="Screenshot of To-do Vue App" width="500px" />
+</div>
 
-In the project directory, you can run:
+#### This project is a frontend challenge.
 
-### `npm start`
+In this project I developed a web To-do App, there are some requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [x] Use Vue.js and Vuetify components
+- [x] Tasks should have **name**, **description**, **date to complete** and **status** (_complete, incomplete and late_)
+- [x] The user should have the option to **update** or **delete** the task *(50%)*
+- [x] The list of tasks should have filters by status
+- [x] All the frontend should be responsiveness
+- [x] Save all the data on the local storage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This application saves all the data in **local storage**, which means data persist stored in your browser, even after you ending the session.
 
-### `npm test`
+I decided to use [Pinia](https://pinia.vuejs.org/) instead of Vuex and all the task store is managed by the Pinia state library.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
+`yarn install`
 
-### `npm run build`
+### Run application
+Vite uses `dev` as script to run the apps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`yarn dev`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The dev server will be ruinng at [port 3000](http://localhost:3000) _(verify if it is available)_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploy
+To deploy this application I used Netlify free service, [click here](https://todo-vue-app-allankildare.netlify.app/) to see the app.
