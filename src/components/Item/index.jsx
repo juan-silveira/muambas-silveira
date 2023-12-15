@@ -1,20 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Item = ({ item }) => {
 
     const name = item.name;
-    const description = item.description;
     const price = parseFloat(item.price).toFixed(2);
     const imgUrl = item.imgUrl;
     const stock = parseInt(item.stock);
-
-    const promiseProdutos = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve()
-        }, 2000)
-    })
-
-    promiseProdutos.then((response) => {
-        console.log(response)
-    })
 
     return (
         <>
@@ -25,9 +16,8 @@ const Item = ({ item }) => {
                 <div className="card-body d-flex align-content-between flex-wrap justify-content-center">
                     <div>
                     <h5 className="card-title">{name}</h5>
-                    {/* <p className="card-text">{description}.</p> */}
                     </div>
-                    <button className="btn btn-outline-info mt-2"><span className="fw-bold">DETALHES</span></button>
+                    <Link to={`/item/${item.id}`} className="btn btn-outline-info mt-2"><span className="fw-bold">DETALHES</span></Link>
                 </div>
                 <div className="card-footer d-flex justify-content-around">
                     <span className="badge bg-primary">R$ {price}</span>

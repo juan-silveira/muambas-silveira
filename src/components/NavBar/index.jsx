@@ -7,8 +7,8 @@ const NavBar = () => {
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container">
-                    <a className="navbar-brand" href="#">
-                        <img src="./logo192.png" alt="logo" height={"30px"} />
+                    <a className="navbar-brand" href="/">
+                        <img src="../logo.svg" alt="logo" height={"30px"} />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -19,13 +19,13 @@ const NavBar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/">Início</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/electronics">Eletrônicos</Link>
+                                <Link className="nav-link" to="/category/electronics">Eletrônicos</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/sports">Esportes e Lazer</Link>
+                                <Link className="nav-link" to="/category/sports">Esportes e Lazer</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/home-garden">Casa e Jardim</Link>
+                                <Link className="nav-link" to="/category/home">Casa e Jardim</Link>
                             </li>
                         </ul>
                         <CartWidget />

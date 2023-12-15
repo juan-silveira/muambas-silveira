@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ItemCount = (props) => {
 
-    const produtos = props.produtos;
-    const item = produtos[0];
-
-    const stock = parseInt(item.stock);
+    const stock = parseInt(props.stock);
     const initial = 1;
     const [count, setCount] = useState(initial);
 
+    useEffect(() => {
+        document.getElementById("cart").innerHTML = count;
+    }, [count])
+
+
     function removeItem() {
         if (count > initial) {
-            document.getElementById("cart").innerHTML = count - 1;
             return setCount(count - 1)
         }
     }
 
     function addItem() {
         if (count < stock) {
-            document.getElementById("cart").innerHTML = count + 1;
             return setCount(count + 1)
         }
     }
