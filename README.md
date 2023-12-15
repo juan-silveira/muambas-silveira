@@ -6,7 +6,7 @@
 
 
 <div align="center">
-    <img src="../puplic/images/demo.jpg" alt="Screenshot of the App" width="500px" />
+    <img src="./public/images/demo.jpg" alt="Screenshot of the App" width="500px" />
 </div>
 
 #### This project is a frontend challenge.
