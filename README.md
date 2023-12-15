@@ -6,7 +6,7 @@
 
 
 <div align="center">
-    <img src="%PUBLIC_URL%/images/demo.jpg" alt="Screenshot of the App" width="500px" />
+    <img src="../puplic/images/demo.jpg" alt="Screenshot of the App" width="500px" />
 </div>
 
 #### This project is a frontend challenge.
