@@ -1,35 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import './style.css';
 
 const ItemCount = (props) => {
 
-    const stock = parseInt(props.stock);
-    const initial = 1;
-    const [count, setCount] = useState(initial);
-
-    useEffect(() => {
-        document.getElementById("cart").innerHTML = count;
-    }, [count])
-
-
-    function removeItem() {
-        if (count > initial) {
-            return setCount(count - 1)
-        }
-    }
-
-    function addItem() {
-        if (count < stock) {
-            return setCount(count + 1)
-        }
-    }
+    const count = props.count;
+    const stock = props.stock;
 
     return (
         <>
-
-            <div className="form-groupmt-3 py-2">
-                <button className="btn btn-outline-primary btn-icon" id="remove" onClick={removeItem}><i className="bi bi-dash"></i></button>
-                <span className="mx-2" style={{ maxWidth: "50px" }}>{count}</span>
-                <button className="btn btn-outline-primary btn-icon" id="add" onClick={addItem}><i className="bi bi-plus"></i></button>
+            <div className="d-flex my-3 flex-column">
+                <div className="form-group py-2">
+                    <button className="btn btn-danger btn-icon" id="remove" onClick={props.removeItem} disabled={count === 0 ? true : false}><i className="bi bi-dash icon"></i></button>
+                    <span className="mx-2" style={{ maxWidth: "50px" }}>{stock === 0 ? <span className="badge bg-danger p-2">ESGOTADO</span> : count}</span>
+                    <button className="btn btn-primary btn-icon" id="add" onClick={props.addItem}  disabled={stock === 0 ? true : false}><i className="bi bi-plus icon"></i></button>
+                </div>
+                <div>
+                    <button className="btn btn-success btn-icon" id="addToCart" onClick={props.onAdd} disabled={count === 0 ? true : false}>Add to Cart</button>
+                </div>
+                <div className="mt-2">
+                    <Link to="/cart" className="btn btn-warning btn-icon">Finalizar Compra</Link>
+                </div>
             </div>
         </>
     )
