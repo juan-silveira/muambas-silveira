@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ItemCount from "../ItemCount";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/cartContext";
 
 const ItemDetail = ({ item }) => {
-
+    const cart = useContext(CartContext);
     const name = item.name;
     const description = item.description;
     const price = parseFloat(item.price).toFixed(2);
@@ -11,6 +13,10 @@ const ItemDetail = ({ item }) => {
     const initial = 1;
     const [count, setCount] = useState(initial);
     const [currentStock, setCurrentStock] = useState(stock);
+
+    useEffect(() => {
+        console.log(cart.cart)
+    },[cart])
 
     function removeItem() {
         if (count >= initial) {
@@ -29,6 +35,7 @@ const ItemDetail = ({ item }) => {
         carrinho.innerHTML = parseInt(carrinho.innerText) + count;
         setCurrentStock(currentStock - count);
         setCount(0);
+        cart.addToCart(item, count)
     }
 
     return (
@@ -48,7 +55,15 @@ const ItemDetail = ({ item }) => {
                     </div>
                 </div>
                 <div className="card-footer d-flex justify-content-around">
-                    <ItemCount stock={currentStock} count={count} removeItem={removeItem} addItem={addItem} onAdd={onAdd}/>
+                    <div className="d-flex my-3 flex-column">
+                        <ItemCount stock={currentStock} count={count} removeItem={removeItem} addItem={addItem} onAdd={onAdd} />
+                        <div>
+                            <button className="btn btn-outline-success btn-icon" id="addToCart" onClick={onAdd} disabled={count === 0 ? true : false}>Comprar</button>
+                        </div>
+                        <div className="mt-2">
+                            <Link to="/cart" className="btn btn-outline-warning btn-icon">Finalizar Compra</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
