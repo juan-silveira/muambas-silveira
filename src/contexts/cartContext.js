@@ -1,11 +1,12 @@
 import { createContext, useState } from "react";
+import { Produtos } from "../produtos";
 
 export const CartContext = createContext(
     []
 )
 
 export function CartContextProvider({ children }) {
-
+    const [products, setProducts] = useState(Produtos)
     const [cart, setCart] = useState([])
     var index = -1;
 
@@ -15,35 +16,38 @@ export function CartContextProvider({ children }) {
             index = i
         });
 
+        const idArray = cart.map(e=> e.id);
+        const indexOf = idArray.indexOf(item.id);
+
         if(index > -1){
-            cart[index] = { id: item.id, name: item.name, price: item.price, amount: item.amount + count, stock: cart[index].stock - count }
-            setCart(cart)
+            const newCart = cart.map((e,i) => {
+                if(indexOf === i){
+                    return  { ...e, quantity: e.quantity ? e.quantity + count : count, stock: e.stock - count }
+                }
+                return e
+            })
+            setCart(newCart)
         } else{
-            setCart([...cart, { id: item.id, name: item.name, price: item.price, amount: count, stock: item.stock - count }])
+            setCart([...cart, { ...item, quantity: count, stock: item.stock - count }])
         }
     }
 
-    function removeItem(id) {
-        cart.forEach((element, i) => {
-            if(element.id === id)
-            index = i
-        });
-
-        index > -1 ? setCart(cart.splice(index, 1)) : console.log("Não existe item com esse id!")
+    function removeFromCart(id) {
+        const idArray = cart.map(e=> e.id);
+        console.log("IDARRAY: ", idArray);
+        const indexOf = idArray.indexOf(id);
+        console.log("INDEXOF: ", indexOf);
+        const newCart = cart.splice(indexOf, 1)
+        console.log("NEWCART: ", newCart);
+        setProducts(newCart);
     }
 
     function clear() {
         setCart([])
     }
-
-    function isInCart(id) {
-        cart.filter(element => {
-            return element.id === id ? true : false
-        });
-    }
     
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeItem, clear, isInCart }}>
+        <CartContext.Provider value={{ cart, products, addToCart, removeFromCart, clear }}>
             {children}
         </CartContext.Provider>
     )

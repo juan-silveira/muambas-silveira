@@ -5,12 +5,24 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBNMisuCTVOYrVdOesZqFf2Dzhx8pMyiAs",
+  authDomain: "muambas.firebaseapp.com",
+  projectId: "muambas",
+  storageBucket: "muambas.appspot.com",
+  messagingSenderId: "32954686363",
+  appId: "1:32954686363:web:74fe3bf7d704cec9a9df3e"
+};
+
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

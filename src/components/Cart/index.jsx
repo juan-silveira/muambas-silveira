@@ -1,8 +1,11 @@
+import CartItemListContainer from "../CartItemListContainer";
+
 const Cart = () => {
 
     return (
         <>
-<h1>Carrinho</h1>
+            <h1 className="text-center">Carrinho</h1>
+            <CartItemListContainer />
         </>
     )
 }

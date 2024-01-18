@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Item = ({ item }) => {
+const CartItem = ({ item }) => {
 
     const name = item.name;
     const price = parseFloat(item.price).toFixed(2);
@@ -28,4 +28,4 @@ const Item = ({ item }) => {
     )
 }
 
-export default Item;
+export default CartItem;
