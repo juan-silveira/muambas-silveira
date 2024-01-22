@@ -5,7 +5,7 @@ const CartItem = ({ item }) => {
     const name = item.name;
     const price = parseFloat(item.price).toFixed(2);
     const imgUrl = item.imgUrl;
-    const stock = parseInt(item.stock);
+    // const stock = parseInt(item.stock);
 
     return (
         <>
@@ -21,7 +21,7 @@ const CartItem = ({ item }) => {
                 </div>
                 <div className="card-footer d-flex justify-content-around">
                     <span className="badge bg-primary">R$ {price}</span>
-                    <span className="badge bg-dark">Estoque: {stock}</span>
+                    {/* <span className="badge bg-dark">Estoque: {stock}</span> */}
                 </div>
             </div>
         </>

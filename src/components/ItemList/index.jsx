@@ -1,17 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Item from "../Item";
 import { Produtos } from "../../produtos";
 import Spinner from "../Spinner";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../contexts/cartContext";
 
 const ItemList = () => {
 
     const { category } = useParams();
     const [produtos, setProdutos] = useState([])
-
-    console.log("PRODUTOS NO CONTEXT: ",useContext(CartContext).products)
-    console.log("PRODUTOS MOCKADOS: ", produtos)
 
     useEffect(() => {
         setProdutos([])

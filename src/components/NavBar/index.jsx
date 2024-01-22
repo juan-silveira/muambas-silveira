@@ -27,6 +27,9 @@ const NavBar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/category/home">Casa e Jardim</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/orders">Meus Pedidos</Link>
+                            </li>
                         </ul>
                         <CartWidget />
                         {/* <a className="btn btn-primary" href="#">Login</a> */}

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { CartContextProvider } from './contexts/cartContext';
+import Orders from './components/Orders';
 // import { getFirestore, getDocs, collection } from 'firebase/firestore'; //doc, getDoc
 // import { useEffect, useState } from 'react';
 
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/category/:category" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/orders" element={<Orders />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>

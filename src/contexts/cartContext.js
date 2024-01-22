@@ -8,9 +8,10 @@ export const CartContext = createContext(
 export function CartContextProvider({ children }) {
     const [products, setProducts] = useState(Produtos)
     const [cart, setCart] = useState([])
-    var index = -1;
-
+    
     function addToCart(item, count) {
+        let index = -1;
+
         cart.forEach((element, i) => {
             if(element.id === item.id)
             index = i
@@ -30,24 +31,41 @@ export function CartContextProvider({ children }) {
         } else{
             setCart([...cart, { ...item, quantity: count, stock: item.stock - count }])
         }
+
+        setProducts((prevProducts) => {
+            const updateProducts = prevProducts.map((p) => {
+                if (p.id === item.id) {
+                    return {...p, stock: p.stock - count};
+                }
+                return p;
+            })
+            return updateProducts;
+        })
     }
 
     function removeFromCart(id) {
         const idArray = cart.map(e=> e.id);
-        console.log("IDARRAY: ", idArray);
         const indexOf = idArray.indexOf(id);
-        console.log("INDEXOF: ", indexOf);
         const newCart = cart.splice(indexOf, 1)
-        console.log("NEWCART: ", newCart);
         setProducts(newCart);
+
+        setProducts((prevProducts) => {
+            const updateProducts = prevProducts.map((p) => {
+                if (p.id === id) {
+                    return {...p, stock: p.stock + cart[indexOf].quantity};
+                }
+                return p;
+            })
+            return updateProducts;
+        })
     }
 
-    function clear() {
+    function clearCart() {
         setCart([])
     }
     
     return (
-        <CartContext.Provider value={{ cart, products, addToCart, removeFromCart, clear }}>
+        <CartContext.Provider value={{ cart, products, addToCart, removeFromCart, clearCart }}>
             {children}
         </CartContext.Provider>
     )
